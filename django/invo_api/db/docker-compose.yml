@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  invo_app:
+    container_name: invo_app
+    image: postgres
+    environment:
+      POSTGRES_USER: "invo_user"
+      POSTGRES_PASSWORD: "invo1234"
+      PGDATA: /data/invo_app
+    volumes:
+      - invo_app:/data/invo_app
+    ports:
+      - "5434:5432"
+    networks:
+      - invo_app_net
+    restart: unless-stopped
+
+networks:
+  invo_app_net:
+    driver: bridge
+
+volumes:
+  invo_app:
