@@ -22,3 +22,5 @@ networks:
 
 volumes:
   invo_app:
+
+
